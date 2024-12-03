@@ -4,5 +4,11 @@
 
 ```bash
 docker build . -t pandocjp
-docker run -it -v .:/data /bin/bash
 ```
+
+## Debug
+
+```bash
+docker run -it --rm --volume .:/data --entrypoint "/bin/bash" pandocjp
+```
+
