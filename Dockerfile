@@ -2,6 +2,7 @@ FROM pandoc/extra:3.5-ubuntu
 
 # Core Install
 RUN apt-get update && apt-get install \
+    git \
     vim \
     nodejs \
     npm \
@@ -16,6 +17,15 @@ RUN apt-get install \
     libxkbcommon-x11-0 \
     libasound2t64 \
     -y
+
+# Texlive
+RUN apt-get install \
+    texlive-luatex texlive-lang-cjk lmodern texlive-xetex \
+    texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra latexmk latexdiff \
+    -y
+
+#
+
 # Cache clean for apt-get
 RUN apt-get clean \
     && rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
@@ -46,5 +56,11 @@ USER appuser
 
 # Install headless chrome by puppeteer
 RUN npx puppeteer browsers install chrome-headless-shell
+
+RUN kanji-config-updmap-sys ipaex
+
+COPY scripts/ /usr/local/bin/
+COPY crossref_config.yaml /config/crossref_config.yaml
+COPY listings-setup.tex /config/listings-setup.tex
 
 CMD ["/bin/bash"]
