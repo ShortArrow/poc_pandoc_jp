@@ -51,7 +51,7 @@ x &=& 2
 
 画像はマークダウンと同じ記法で書くことができる。文末に`{#fig:LABEL}`とすることでラベルを付与できる。`{#fig:LABEL height=100mm}`とすることで、画像の大きさも調整できる。
 
-![太陽電池の出力特性](solar.png){#fig:solar height=100mm}
+![太陽電池の出力特性](graph.png){#fig:solar height=100mm}
 
 
 `[@fig:LABEL]`とすることで、参照を貼れる。
@@ -125,7 +125,9 @@ int main(void) {
 }
 ```
 
+listingsパッケージ
 
+<!-- \lstinputlisting[language=c, caption = ソースコード ,label = source]{example.c} !-->
 
 # 図
 
