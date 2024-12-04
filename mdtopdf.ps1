@@ -9,7 +9,7 @@ docker run --rm --volume .:/data `
   pandocjp -s `
   -N $InputMd `
   -o $OutputMd `
-  --resource-path $ResourcePath `
+  --resource-path "$ResourcePath" `
   --lua-filter=diagram.lua `
   -V documentclass=ltjarticle `
   --pdf-engine=lualatex `
