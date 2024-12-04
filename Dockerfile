@@ -22,9 +22,12 @@ RUN apt-get install \
 RUN apt-get install \
     texlive-luatex texlive-lang-cjk lmodern texlive-xetex \
     texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra latexmk latexdiff \
+    fonts-ipaexfont \
+    fonts-ipaexfont-gothic \
+    fonts-ipaexfont-mincho \
+    fonts-ipamj-mincho \
+    texlive-lang-japanese \
     -y
-
-#
 
 # Cache clean for apt-get
 RUN apt-get clean \
@@ -57,7 +60,10 @@ USER appuser
 # Install headless chrome by puppeteer
 RUN npx puppeteer browsers install chrome-headless-shell
 
-RUN kanji-config-updmap-sys ipaex
+RUN command -v kpsewhich 
+RUN mktexlsr
+RUN updmap-sys
+#RUN kanji-config-updmap-sys ipaex
 
 COPY scripts/ /usr/local/bin/
 COPY crossref_config.yaml /config/crossref_config.yaml
