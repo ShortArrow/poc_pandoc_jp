@@ -1,0 +1,29 @@
+to: pdf
+pdf-engine: lualatex
+filters:
+  - pandoc-crossref
+  - diagram.lua
+standalone: true
+
+variables:
+  lang: ja
+  luatexjapresetoptions: haranoaji
+  classoption:
+    - pandoc
+    - titlepage
+
+metadata:
+  listings: true
+  documentclass: ltjarticle
+  geometry: a4paper
+  figureTitle: "図"
+  tableTitle: "表"
+  listingTitle: "コード"
+  figPrefix: "図"
+  eqnPrefix: "式"
+  tblPrefix: "表"
+  lstPrefix: "コード"
+  secPrefix: '節'
+  header-includes:
+    - |
+      \usepackage{listings}
