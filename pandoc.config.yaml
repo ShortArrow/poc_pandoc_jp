@@ -1,5 +1,7 @@
 to: pdf
 pdf-engine: lualatex
+listings: true
+number-sections: true
 filters:
   - pandoc-crossref
   - diagram.lua
