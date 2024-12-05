@@ -29,6 +29,9 @@ RUN apt-get install \
     texlive-lang-japanese \
     -y
 
+# Debug
+RUN apt-get install apt-file -y
+
 # Cache clean for apt-get
 RUN apt-get clean \
     && rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
@@ -60,11 +63,13 @@ USER appuser
 # Install headless chrome by puppeteer
 RUN npx puppeteer browsers install chrome-headless-shell
 
-RUN command -v kpsewhich 
+# Config reloading
 RUN mktexlsr
+RUN texhash
 RUN updmap-sys
 #RUN kanji-config-updmap-sys ipaex
 
+# Update
 COPY scripts/ /usr/local/bin/
 COPY crossref_config.yaml /config/crossref_config.yaml
 COPY listings-setup.tex /config/listings-setup.tex
