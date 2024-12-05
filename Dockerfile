@@ -49,8 +49,13 @@ RUN mv HaranoAjiFonts-master/* /usr/local/share/fonts/ \
 # Install Lua filter
 RUN wget https://github.com/pandoc-ext/diagram/archive/refs/heads/main.tar.gz
 RUN tar -xzf main.tar.gz
-RUN mv diagram-main/*  /usr/local/share/pandoc/filters/ \
+RUN mv diagram-main/*.lua  /usr/local/share/pandoc/filters/ \
   && rm -rf diagram-main \
+  && rm main.tar.gz
+RUN wget https://github.com/pandoc-ext/pagebreak/archive/refs/heads/main.tar.gz
+RUN tar -xzf main.tar.gz
+RUN mv pagebreak-main/*.lua  /usr/local/share/pandoc/filters/ \
+  && rm -rf pagebreak-main \
   && rm main.tar.gz
 
 # Add user
