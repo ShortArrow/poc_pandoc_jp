@@ -6,15 +6,11 @@ Param(
 )
 
 docker run --rm --volume .:/data `
-  pandocjp -s `
+  pandocjp `
   -N $InputMd `
   -o $OutputMd `
+  -d pandoc.config.yaml `
   --resource-path "$ResourcePath" `
-  --lua-filter=diagram.lua `
-  -V documentclass=ltjarticle `
-  --pdf-engine=lualatex `
-  -F pandoc-crossref `
-  -M "crossrefYaml=/config/crossref_config.yaml" `
-  -H /config/listings-setup.tex `
-  -V geometry:margin=1in
+  --verbose `
+  -H listings-setup.tex
 
