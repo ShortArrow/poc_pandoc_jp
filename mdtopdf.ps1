@@ -5,12 +5,12 @@ Param(
   [String]$ResourcePath
 )
 
-docker run --rm --volume .:/data `
+docker run --rm --volume ${pwd}/example:/data `
   pandocjp `
   -N $InputMd `
   -o $OutputMd `
-  -d pandoc.config.yaml `
-  --resource-path "$ResourcePath" `
+  -d /config/pandoc.config.yaml `
+  --resource-path "/data/" `
   --verbose `
-  -H listings-setup.tex
+  -H /config/listings-setup.tex
 

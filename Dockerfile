@@ -71,7 +71,7 @@ RUN updmap-sys
 
 # Update
 COPY scripts/ /usr/local/bin/
-COPY crossref_config.yaml /config/crossref_config.yaml
-COPY listings-setup.tex /config/listings-setup.tex
+COPY ./config/listings-setup.tex /config/listings-setup.tex
+COPY ./config/pandoc.config.yaml /config/pandoc.config.yaml
 
 CMD ["/bin/bash"]

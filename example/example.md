@@ -127,7 +127,7 @@ int main(void) {
 
 listingsパッケージ
 
-\lstinputlisting[language=c, caption = ソースコード ,label = source]{./example/example.c}
+\lstinputlisting[language=c, caption = ソースコード ,label = source]{example.c}
 
 # 図
 
