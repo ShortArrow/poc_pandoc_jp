@@ -5,6 +5,10 @@ number-sections: true
 filters:
   - pandoc-crossref
   - diagram.lua
+  - list-table.lua
+  - pagebreak.lua
+  - include-files.lua
+  - pretty-urls.lua
 standalone: true
 
 variables:

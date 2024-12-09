@@ -57,6 +57,21 @@ RUN tar -xzf main.tar.gz
 RUN mv pagebreak-main/pagebreak.lua  /usr/local/share/pandoc/filters/ \
   && rm -rf pagebreak-main \
   && rm main.tar.gz
+RUN wget https://github.com/pandoc-ext/pretty-urls/archive/refs/heads/main.tar.gz
+RUN tar -xzf main.tar.gz
+RUN mv pretty-urls-main/_extensions/pretty-urls/pretty-urls.lua /usr/local/share/pandoc/filters/ \
+  && rm -rf pretty-urls-main \
+  && rm main.tar.gz
+RUN wget https://github.com/pandoc-ext/list-table/archive/refs/heads/main.tar.gz
+RUN tar -xzf main.tar.gz
+RUN mv list-table-main/_extensions/list-table/list-table.lua /usr/local/share/pandoc/filters/ \
+  && rm -rf list-table-main \
+  && rm main.tar.gz
+RUN wget https://github.com/pandoc-ext/include-files/archive/refs/heads/main.tar.gz
+RUN tar -xzf main.tar.gz
+RUN mv include-files-main/include-files.lua  /usr/local/share/pandoc/filters/ \
+  && rm -rf include-files-main \
+  && rm main.tar.gz
 
 # Add user
 RUN groupadd -r appuser && useradd -r -g appuser appuser \
