@@ -17,7 +17,9 @@ variables:
 metadata:
   listings: true
   documentclass: ltjarticle
-  geometry: a4paper
+  geometry:
+    - a4paper
+    - margin=2cm
   figureTitle: "図"
   tableTitle: "表"
   listingTitle: "コード"
